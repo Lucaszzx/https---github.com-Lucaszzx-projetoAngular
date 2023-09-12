@@ -17,7 +17,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { NewContactComponent } from './components/pages/new-contact/new-contact.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { EditContactComponent } from './components/pages/edit-contact/edit-contact.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NewContactComponent,
     HomeComponent,
     SobreComponent,
+    EditContactComponent,
 
 
     
@@ -42,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     MatInputModule,
     MatFormFieldModule,
+    MatPaginatorModule
  
 
   ],

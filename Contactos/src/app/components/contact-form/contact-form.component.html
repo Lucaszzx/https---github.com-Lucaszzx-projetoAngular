@@ -1,4 +1,6 @@
-<form (ngSubmit)="submit()" [formGroup]="contactForm" #formDir="ngForm">
+
+<ng-container *ngIf="action.includes('add'); else novoFormulario">
+<form (ngSubmit)="submit()" [formGroup]="contactForm"  #formDir="ngForm" >
   <div class="form-group">
     <input type="hidden" formControlName="id" />
   </div>
@@ -7,7 +9,8 @@
       <input
         type="text"
         id="first_name"
-        autocomplete="first_name"
+        
+
         placeholder="Coloque o nome!"
         formControlName="first_name"
         required
@@ -36,7 +39,7 @@
       <input
         type="text"
         id="email"
-        autocomplete="email"
+       
         placeholder="Coloque o Email!"
         formControlName="email"
         required
@@ -52,7 +55,7 @@
       <input
         type="text"
         id="address"
-        autocomplete="address"
+     
         placeholder="Coloque o Endereço!"
         formControlName="address"
         required
@@ -80,4 +83,108 @@
   
     <input type="submit" value="{{ btnText }}" />
   </form>
+
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #novoFormulario>
+  <!-- Caso seja um novo formulário -->
   
+<form (ngSubmit)="submit()" [formGroup]="contactForm"  #formDir="ngForm" *ngIf="contactForm">
+  <div class="form-group">
+    <input type="hidden" formControlName="id" />
+  </div>
+    <div class="form-group">
+      <label for="first_name">Nome:</label>
+      <input
+        type="text"
+        id="first_name"
+        
+
+        placeholder="Coloque o nome!"
+        formControlName="first_name"
+        required
+      />
+      <div *ngIf="first_name.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="first_name.errors?.['required']">O nome é obrigatório!</p>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="last_name">Apelido:</label>
+      <input
+        type="text"
+        id="last_name"
+        placeholder="Coloque o Apelido!"
+        formControlName="last_name"
+        required
+      />
+      <div *ngIf="last_name.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="last_name.errors?.['required']">O apelido é obrigatório!</p>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        id="email"
+       
+        placeholder="Coloque o Email!"
+        formControlName="email"
+        required
+      />
+      <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="email.errors?.['required']">O Email é obrigatório!</p>
+        <p *ngIf="email.errors?.['email']">O Email deve ser válido!</p>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="address">Endereço:</label>
+      <input
+        type="text"
+        id="address"
+     
+        placeholder="Coloque o Endereço!"
+        formControlName="address"
+        required
+      />
+      <div *ngIf="address.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="address.errors?.['required']">O Endereço é obrigatório!</p>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="phone_number">Telemovel:</label>
+      <input
+        type="text"
+        id="phone_number"
+        placeholder="Coloque o Telemovel!"
+        formControlName="phone_number"
+        required
+      />
+      <div *ngIf="phone_number.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="phone_number.errors?.['required']">O Telemovel é obrigatório!</p>
+      </div>
+    </div>
+  
+  
+  
+    <input type="submit" value="{{ btnText }}" />
+  </form>
+</ng-template>

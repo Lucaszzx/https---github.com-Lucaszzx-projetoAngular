@@ -1,14 +1,24 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
 table {
     width: 100%;
-    
+    border-collapse: collapse;
   }
 
   .mat-mdc-form-field {
     font-size: 14px;
-    width: 100%;
-    
+    width:80%;
+    margin:5px;
+    padding-left: 25%;
+   
+    align-content: center;
   }
 
   td, th {
-    width: 25%;
+    border: 1px solid #ccc;
+    padding: 8px;
+  text-align: center;
+    font-size: 16px;
+    
   }

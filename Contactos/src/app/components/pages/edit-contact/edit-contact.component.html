@@ -1,0 +1,11 @@
+<div *ngIf="contact">
+    <h2>
+      Editando o Contacto <span>{{ contact.first_name }}</span
+      >!
+    </h2>
+    <app-contact-form
+(onSubmit)="editarContact($event)"
+    [contact]="id"
+      [action]="action"
+    ></app-contact-form>
+  </div>
