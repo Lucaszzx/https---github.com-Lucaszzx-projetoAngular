@@ -23,10 +23,6 @@ export class ContactService {
     return this.http.post<FormData>(`${this.apiUrl}/contacts.json`, contact);
   }
 
-  // removeContact(contactId: number): Observable<any> {
-  //   console.log(contactId);
-  //    return this.http.delete("http://localhost:8765/contacts/"+10+".json");
-  // }
 
   delete(id: any): Observable<any> {
     return this.http.delete(`${this.apiUrl}/contacts/${id}.json`);
